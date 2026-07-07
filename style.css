@@ -1,0 +1,808 @@
+/* ==========================================================
+                    RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    radial-gradient(circle at top,
+    #2d1650 0%,
+    #12081f 70%);
+
+    color:white;
+
+}
+
+/* ==========================================================
+                    STARS
+========================================================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:.5;
+
+    animation:float 12s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(100vh);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.6;
+
+}
+
+100%{
+
+transform:translateY(-120vh);
+
+opacity:0;
+
+}
+
+}
+
+/* ==========================================================
+                    SCENES
+========================================================== */
+
+.scene{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:40px 0;
+
+    overflow-y:auto;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+.scene.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* ==========================================================
+                    CONTENT
+========================================================== */
+
+.content{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+                    SCENE 1
+========================================================== */
+
+#title{
+
+    font-size:72px;
+
+    font-weight:300;
+
+    min-height:90px;
+
+}
+
+#subtitle{
+
+    font-size:30px;
+
+    line-height:50px;
+
+    margin-top:25px;
+
+    opacity:0;
+
+    transition:1s;
+
+    color:#ece8f8;
+
+    min-height:80px;
+
+}/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+button{
+
+    display:none;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    font-family:'Poppins',sans-serif;
+
+    color:white;
+
+    background:#8b5cf6;
+
+    transition:.3s;
+
+    box-shadow:0 0 25px rgba(139,92,246,.35);
+
+}
+
+button:hover{
+
+    background:#9d73ff;
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================================================
+                    FADE ANIMATION
+========================================================== */
+
+.fadeIn{
+
+    animation:fadeIn .8s forwards;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+                    STORY
+========================================================== */
+
+.story{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:28px;
+
+    min-height:360px;
+
+}
+
+.storyLine{
+
+    font-size:32px;
+
+    font-weight:300;
+
+    line-height:46px;
+
+    color:#ece8f8;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:1s;
+
+}
+
+.storyLine.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================================
+                    GIFT
+========================================================== */
+
+.giftTitle{
+
+    font-size:40px;
+
+    font-weight:300;
+
+    margin-bottom:60px;
+
+    opacity:0;
+
+}
+
+#gift{
+
+    position:relative;
+
+    width:220px;
+
+    height:220px;
+
+    margin:auto;
+
+    cursor:pointer;
+
+    animation:giftFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes giftFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+.box{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:220px;
+
+    height:150px;
+
+    background:#8b5cf6;
+
+    border-radius:0 0 18px 18px;
+
+}
+
+.lid{
+
+    position:absolute;
+
+    top:32px;
+
+    left:-5px;
+
+    width:230px;
+
+    height:45px;
+
+    background:#d8c0ff;
+
+    border-radius:15px;
+
+    transform-origin:left center;
+
+    transition:1s;
+
+}
+
+.ribbonVertical{
+
+    position:absolute;
+
+    left:98px;
+
+    width:24px;
+
+    height:220px;
+
+    background:white;
+
+}
+
+.ribbonHorizontal{
+
+    position:absolute;
+
+    top:58px;
+
+    width:220px;
+
+    height:24px;
+
+    background:white;
+
+}
+
+.glow{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:25px;
+
+    height:25px;
+
+    border-radius:50%;
+
+    background:#ffd54f;
+
+    filter:blur(40px);
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+#gift.open .lid{
+
+    transform:rotate(-35deg) translateY(-55px);
+
+}
+
+#gift.open .glow{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(9);
+
+}/* ==========================================================
+                    LETTER
+========================================================== */
+
+#letter{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:1s;
+
+}
+
+#letter.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+#letter h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:56px;
+
+    margin-bottom:25px;
+
+}
+
+
+#letterText{
+
+    font-size:22px;
+
+    line-height:40px;
+
+    color:#ece8f8;
+
+    white-space:pre-line;
+
+}
+/* ==========================================================
+                    SCENE 5
+========================================================== */
+
+#cinemaText{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:280px;
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:300;
+
+    line-height:70px;
+
+    color:#ece8f8;
+
+    opacity:0;
+
+    transition:1s;
+
+    white-space:pre-line;
+
+}
+
+#scene5Next{
+
+    margin-top:35px;
+
+}
+
+/* ==========================================================
+                    SCENE 6
+========================================================== */
+
+#cakeTitle{
+
+    font-size:42px;
+
+    font-weight:300;
+
+    margin-bottom:50px;
+
+}
+
+#cake{
+
+    position:relative;
+
+    width:260px;
+
+    height:260px;
+
+    margin:0 auto;
+
+}
+
+.cakeBody{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:260px;
+
+    height:140px;
+
+    border-radius:20px;
+
+    background:#ffb6c1;
+
+}
+
+.icing{
+
+    position:absolute;
+
+    bottom:125px;
+
+    width:260px;
+
+    height:40px;
+
+    border-radius:20px;
+
+    background:#ffffff;
+
+}
+
+.candle{
+
+    position:absolute;
+
+    left:122px;
+
+    bottom:165px;
+
+    width:16px;
+
+    height:70px;
+
+    border-radius:10px;
+
+    background:#8b5cf6;
+
+}
+
+.flame{
+
+    position:absolute;
+
+    left:117px;
+
+    bottom:228px;
+
+    width:26px;
+
+    height:34px;
+
+    background:#ffd54f;
+
+    border-radius:50%;
+
+    animation:flicker .3s infinite alternate;
+
+    filter:blur(1px);
+
+}
+
+@keyframes flicker{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.15);
+
+    }
+
+}
+
+#blowBtn{
+
+    margin-top:50px;
+
+}
+
+/* ==========================================================
+                    SCENE 7
+========================================================== */
+
+#finalTitle{
+
+    font-size:72px;
+
+    font-weight:300;
+
+}
+
+#finalName{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:64px;
+
+    margin:20px 0 35px;
+
+    color:#ffd9ff;
+
+}
+
+#finalMessage{
+
+    max-width:900px;
+
+    margin:auto;
+
+    font-size:24px;
+
+    line-height:42px;
+
+    color:#ece8f8;
+
+}
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+    #title{
+
+        font-size:46px;
+
+    }
+
+    #subtitle{
+
+        font-size:22px;
+
+        line-height:36px;
+
+    }
+
+    .storyLine{
+
+        font-size:22px;
+
+        line-height:34px;
+
+    }
+
+    .giftTitle{
+
+        font-size:28px;
+
+    }
+
+    #gift{
+
+        transform:scale(.8);
+
+    }
+
+    #letter{
+
+        padding:30px;
+
+    }
+
+    #letter h2{
+
+        font-size:40px;
+
+    }
+
+    #letterText{
+
+        font-size:18px;
+
+        line-height:32px;
+
+    }
+
+    #cinemaText{
+
+        font-size:26px;
+
+        line-height:42px;
+
+    }
+
+    #cake{
+
+        transform:scale(.8);
+
+    }
+
+    #cakeTitle{
+
+        font-size:30px;
+
+    }
+
+    #finalTitle{
+
+        font-size:44px;
+
+    }
+
+    #finalName{
+
+        font-size:42px;
+
+    }
+
+    #finalMessage{
+
+        font-size:18px;
+
+        line-height:30px;
+
+    }
+
+    button{
+
+        font-size:17px;
+
+        padding:14px 28px;
+
+    }
+
+}
